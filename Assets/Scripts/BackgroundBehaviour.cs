@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BackgroundBehaviour : MonoBehaviour {
 
+
 	// Use this for initialization
 	void Start () {
 		
@@ -11,6 +12,6 @@ public class BackgroundBehaviour : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+
+    }
 }
