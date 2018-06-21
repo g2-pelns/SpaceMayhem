@@ -66,20 +66,37 @@ public class RocketBehaviour : MonoBehaviour {
             if (Input.mousePosition.x < screenMidPoint)
             {
                 turnSpeed = Mathf.SmoothStep(minTurn, maxTurn, turnTime / turnStrenght);
-                transform.position += transform.right * turnSpeed * Time.deltaTime;
+                if (transform.position.x < 1.0f)
+                {
+                    transform.position += transform.right * turnSpeed * Time.deltaTime;
+                }
             }
             else if (Input.mousePosition.x >= screenMidPoint)
             {
                 turnSpeed = Mathf.SmoothStep(minTurn, maxTurn, turnTime / turnStrenght);
-                transform.position -= transform.right * turnSpeed * Time.deltaTime;
+                if (transform.position.x > -1.0f)
+                {
+                    transform.position -= transform.right * turnSpeed * Time.deltaTime;
+                }
             }
             turnTime += Time.deltaTime;
         }
         else
         {
-            turnTime = 0.0f;
-            turnSpeed = 0.0f;
+            turnSpeed = Mathf.SmoothStep(minTurn, maxTurn, turnTime / turnStrenght);
+            if (transform.position.x > 0.1f)
+            {
+                transform.position -= transform.right * turnSpeed * Time.deltaTime;
+            }
+            else if (transform.position.x < -0.1f)
+            {
+                transform.position += transform.right * turnSpeed * Time.deltaTime;
+            }
+            //turnTime = 0.0f;
+            //turnSpeed = 0.0f;
         }
+
+        Debug.Log(Input.GetAxis("Fire1"));
     }
 
     public float GetCurrentSpeed()

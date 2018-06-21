@@ -35,8 +35,7 @@ public class CameraBehaviour : MonoBehaviour {
 
         if (Begun)
         {
-            transform.position = new Vector3(mPlayer.transform.position.x,
-                Mathf.Lerp(mPlayer.transform.position.y, mPlayer.transform.position.y + 3.0f, sValue), -10f);
+            transform.position = new Vector3(0.0f, Mathf.Lerp(mPlayer.transform.position.y, mPlayer.transform.position.y + 3.0f, sValue), -10f);
         }
     }
 

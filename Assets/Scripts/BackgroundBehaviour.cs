@@ -44,5 +44,16 @@ public class BackgroundBehaviour : MonoBehaviour {
             }
             rend.material.mainTextureOffset = offset;
         }
-   }
+        else
+        {
+            if (player.transform.position.x > 0.1f)
+            {
+                offset -= new Vector2(Time.time * (xSpeed / 2), 0);
+            }
+            else if (player.transform.position.x < -0.1f)
+            {
+                offset += new Vector2(Time.time * (xSpeed / 2), 0);
+            }
+        }
+    }
 }
